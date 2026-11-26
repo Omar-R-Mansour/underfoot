@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover" />
+    <title>Underfoot</title>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%238f8b85'/%3E%3Cpath d='M16 30 Q15 20 16 14' stroke='%235e8c3a' stroke-width='3' fill='none'/%3E%3Ccircle cx='16' cy='10' r='7' fill='%23ffca3a'/%3E%3Ccircle cx='16' cy='10' r='3' fill='%236b4423'/%3E%3C/svg%3E" />
+    <link rel="apple-touch-icon" href="./icon-180.png" />
+    <link rel="manifest" href="./manifest.webmanifest" />
+    <meta name="theme-color" content="#1d1c1b" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="Underfoot" />
+    <meta name="description" content="You're a flower in a sidewalk crack. The only way to spread is to get stepped on." />
+    <style>html,body{overscroll-behavior:none;background:#1d1c1b;height:100%;margin:0;overflow:hidden}body{box-sizing:border-box;height:100dvh;padding:env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);touch-action:none;-webkit-user-select:none;user-select:none;-webkit-touch-callout:none;-webkit-tap-highlight-color:transparent;justify-content:center;align-items:center;display:flex}#game{flex:none;position:relative}#game canvas{cursor:crosshair;touch-action:none;outline:none;display:block}body.rotated #game{transform:rotate(90deg)}#help{z-index:15;overscroll-behavior:contain;touch-action:pan-y;-webkit-user-select:text;user-select:text;color:#f4f1ea;padding:env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);background:#1d1c1bf7;font:17px/1.5 -apple-system,system-ui,Segoe UI,sans-serif;position:fixed;inset:0;overflow-y:auto}#help[hidden]{display:none}#help .page{max-width:760px;margin:0 auto;padding:18px 22px 40px}#help .bar{background:linear-gradient(#1d1c1b 70%,#0000);justify-content:flex-end;padding:10px 0;display:flex;position:sticky;top:0}#help h1,#help h2,#help .btn{font-family:Caveat,Segoe Print,cursive;font-weight:700}#help h1{letter-spacing:1px;margin:0 0 4px;font-size:46px}#help h2{color:#ffd166;margin:30px 0 8px;font-size:30px}#help p,#help li{margin:6px 0}#help ul,#help ol{padding-left:22px}#help .lead{opacity:.9;font-size:19px}#help table{border-collapse:collapse;width:100%;margin:10px 0;font-size:15.5px}#help th,#help td{text-align:left;vertical-align:top;border:1px solid #f4f1ea38;padding:7px 9px}#help th{background:#f4f1ea14}#help kbd{border:1px solid #f4f1ea73;border-radius:5px;padding:2px 6px;font:600 14px/1 ui-monospace,monospace}#help a{color:#9be7ff}#help .btn{color:#f4f1ea;cursor:pointer;background:#f4f1ea1f;border:2px solid #f4f1ea;border-radius:14px;padding:4px 18px;font-size:26px}#help .btn.play{border-color:#ffd166;margin:34px auto 0;padding:6px 34px;font-size:32px;display:block}</style>
+    <!-- Shows startup problems on screen (a phone has no console to look at). -->
+    <script src="./report.js"></script>
+    <script type="module" crossorigin src="./assets/index-BBGYzgOd.js"></script>
+    <link rel="modulepreload" crossorigin href="./assets/CanvasPool-BXYFfnAz.js">
+    <link rel="modulepreload" crossorigin href="./assets/RenderTargetSystem-B_GNrijp.js">
+    <link rel="modulepreload" crossorigin href="./assets/getTexelRangeRects-C0SEluDh.js">
+    <link rel="stylesheet" crossorigin href="./assets/index-vk34Glum.css">
+  </head>
+  <body>
+    <div id="game"></div>
+    <div id="help" hidden role="dialog" aria-modal="true" aria-labelledby="help-title">
+      <div class="page">
+        <div class="bar"><button class="btn" type="button" data-close>back to the game ✕</button></div>
+        <h1 id="help-title">How to play Underfoot</h1>
+        <p class="lead">You're a little yellow flower in a crack in the pavement, and you travel by getting stepped on.</p>
+        <p>When a shoe lands on you and lifts off, your stem springs back and flings a seed. If the seed lands in a crack, it blooms into a new flower, and that flower becomes you (it wears a white ring). Every flower plays a note and the footsteps are the drums, so the street turns into a song as you cross it.</p>
+        <p><strong>Your goal on every street:</strong> reach the curb on the far right before the clock runs out.</p>
+
+        <h2>Controls</h2>
+        <p>You only choose the direction; the shoe decides how far you fly. Timing never matters: the seed flies by itself when the shoe lifts.</p>
+        <table>
+          <thead><tr><th>What you want</th><th>Phone or tablet</th><th>Computer</th></tr></thead>
+          <tbody>
+            <tr><td>Aim where your seed flies</td><td>Touch or drag on the street</td><td>Move the mouse (or arrow keys / <kbd>WASD</kbd>)</td></tr>
+            <tr><td>Duck: let the next shoe or bike pass over you</td><td>Tap the <strong>DUCK</strong> button, bottom right</td><td>Click, or <kbd>Space</kbd></td></tr>
+            <tr><td>Pause</td><td>Pause button, top right</td><td><kbd>Esc</kbd></td></tr>
+            <tr><td>Sound on or off</td><td>Speaker button, top right</td><td><kbd>M</kbd></td></tr>
+            <tr><td>Restart the street</td><td>Pause, then <strong>restart</strong></td><td><kbd>R</kbd></td></tr>
+            <tr><td>Pick a street</td><td>Tap a square of the chalk hopscotch on the title screen</td><td>Click a square, or <kbd>←</kbd> <kbd>→</kbd> then <kbd>Enter</kbd></td></tr>
+            <tr><td>This page</td><td><strong>how to play</strong> on the title screen or in the pause menu</td><td><kbd>H</kbd></td></tr>
+          </tbody>
+        </table>
+        <p>On a phone, hold it sideways; you can aim with one finger and tap DUCK with another. For full screen, add the game to your home screen (iPhone: Share → Add to Home Screen; Android: browser menu → Add to Home screen).</p>
+
+        <h2>Reading the street</h2>
+        <p>The shoe that steps on you decides how far you fly (one paver = one square of pavement):</p>
+        <table>
+          <thead><tr><th>What steps on you</th><th>How far you fly</th></tr></thead>
+          <tbody>
+            <tr><td>Sneaker</td><td>1 paver</td></tr>
+            <tr><td>Heel</td><td>2 pavers</td></tr>
+            <tr><td>Boot</td><td>3 pavers</td></tr>
+            <tr><td>A crowd standing on you, waiting at a red light</td><td>The shoe's distance + 1 for every beat they wait (up to +5)</td></tr>
+          </tbody>
+        </table>
+        <ul>
+          <li><strong>A shoe about to land on you</strong> shows first as a faint outline with a number: how far it will throw you.</li>
+          <li><strong>The ring</strong> shows where you'll land. A tick means a crack: you'll bloom there. A cross means bare pavement: the seed is wasted and you stay put.</li>
+          <li><strong>Wrong shoe coming? Duck.</strong> It passes over you and you wait for a better one.</li>
+          <li><strong>Bikes ring a bell</strong> two beats before they reach you. Duck, or you'll snap back to your previous flower.</li>
+        </ul>
+
+        <h2>Levels, the clock and stars</h2>
+        <p>There are eight streets, from before dawn to night. Each one adds one new idea, and crossing a street unlocks the next.</p>
+        <table>
+          <thead><tr><th>#</th><th>Street</th><th>What's new</th></tr></thead>
+          <tbody>
+            <tr><td>1</td><td>First Steps</td><td>Sneakers: learn to aim</td></tr>
+            <tr><td>2</td><td>Bus Stop</td><td>Boots: let a sneaker pass to catch a boot over the drain</td></tr>
+            <tr><td>3</td><td>Window Shopping</td><td>Heels: gaps only a heel can cross</td></tr>
+            <tr><td>4</td><td>Cycle Lane</td><td>Bikes: duck at the bell</td></tr>
+            <tr><td>5</td><td>Market Row</td><td>Heels, boots and bikes together</td></tr>
+            <tr><td>6</td><td>Red Light</td><td>The waiting crowd throws you across the side street</td></tr>
+            <tr><td>7</td><td>Rush Hour</td><td>Everything at once, with less time and less aim help</td></tr>
+            <tr><td>8</td><td>The Block</td><td>The whole street, then the marching band</td></tr>
+          </tbody>
+        </table>
+        <ul>
+          <li><strong>The clock</strong> at the top counts down. Reach the curb before it runs out, or "the street went quiet" and you try again.</li>
+          <li><strong>Stars:</strong> 3, 2 or 1 for how fast you crossed. Replay a street to beat your stars.</li>
+        </ul>
+
+        <h2>Tips</h2>
+        <ul>
+          <li>Read the number on the coming shoe, then look for a crack exactly that far away.</li>
+          <li>You don't have to take every shoe. Ducking the wrong one is often the fastest way across.</li>
+          <li>Aim roughly: the ring snaps to a crack in reach if you point near it.</li>
+          <li>At a red light, stay under the waiting crowd: every beat they stand there, you'll fly further.</li>
+          <li>Listen for the bike bell and duck straight away.</li>
+          <li>The more flowers you plant, the fuller the music, and the brighter the street.</li>
+        </ul>
+
+        <h2>If something goes wrong</h2>
+        <table>
+          <thead><tr><th>Problem</th><th>Try this</th></tr></thead>
+          <tbody>
+            <tr><td>The game looks sideways on my phone</td><td>Turn the phone to the left. If it then looks upside down, turn it the other way.</td></tr>
+            <tr><td>No sound</td><td>Turn the volume up, and check the speaker button (top right) isn't crossed out. On an iPhone, also check the silent switch.</td></tr>
+            <tr><td>I'm stuck or lost on a street</td><td>Pause, then <strong>restart</strong>.</td></tr>
+            <tr><td>Tapping does nothing, or the screen stays blank</td><td>Reload the page. If an error message appears, take a screenshot.</td></tr>
+            <tr><td>A street is too hard and I want to see the rest</td><td>Open the game with <a href="./?unlock">?unlock</a> at the end of the link: every street opens.</td></tr>
+          </tbody>
+        </table>
+
+        <h2>Playtesting? Tell us what you think</h2>
+        <p>Play for about 10 minutes without asking anyone for help, then send a few lines (a voice note is fine) to the person who shared the game with you:</p>
+        <ol>
+          <li>What did you play on: phone, tablet or computer? Which model and browser?</li>
+          <li>Did you understand what to do on the first street without help? What confused you?</li>
+          <li>How far did you get? Which street was the hardest, and did any feel unfair?</li>
+          <li>Did you find the DUCK button and hear the bike bell? Did ducking make sense?</li>
+          <li>What was the best moment, and what was the most annoying one?</li>
+          <li>Did anything look or sound broken: the screen, the buttons, the sound?</li>
+        </ol>
+        <button class="btn play" type="button" data-close>got it — let's play</button>
+      </div>
+    </div>
+  </body>
+</html>
